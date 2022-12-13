@@ -1,3 +1,11 @@
-.notifications {
+.notifications  {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    width: 100%;
+}
 
+.notifications > span {
+    color: #FFFFFF;
+    font-size: 4em;
 }

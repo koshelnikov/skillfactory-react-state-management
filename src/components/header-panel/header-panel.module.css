@@ -5,3 +5,13 @@
     align-items: center;
 }
 
+.messageButton {
+    position: relative;
+}
+
+.messageBudget {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+

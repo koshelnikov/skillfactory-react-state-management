@@ -1,8 +1,8 @@
-import classes from './header-nav.module.css'
+import css from './header-nav.module.css'
 
 export const HeaderNav = (props) => {
     return (
-        <li className={classes.headerNav}>
+        <li className={css.headerNav} onClick={() => props.onClick()}>
             {props.children}
         </li>
     )

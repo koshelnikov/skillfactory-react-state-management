@@ -1,0 +1,11 @@
+.budget {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    font-size: 10px;
+    width: 16px;
+    height: 16px;
+}

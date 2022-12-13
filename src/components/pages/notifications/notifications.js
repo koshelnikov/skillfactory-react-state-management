@@ -1,10 +1,11 @@
 import {Link} from "react-router-dom";
+import css from './notification.module.css'
 
 export const Notifications = () => {
-
     return (
-        <div> Notification Page
+        <div className={css.notifications}>
             <Link to={'/'}>Dashboard</Link>
+            <span>Notifications </span>
         </div>
     )
 }

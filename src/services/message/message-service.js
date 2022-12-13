@@ -1,17 +1,12 @@
 const messages = [];
 
 export const getMessages = () => {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(messages)
-        }, 1000);
-    })
+    return messages;
 }
 
-export const addMessages = (message) => {
-    return new Promise((res) => {
-        setTimeout(() => {
-            messages.push(message);
-        }, 1000);
-    })
+export const addMessage = (message) => {
+    messages.push({
+        id: messages.length + 1,
+        message
+    });
 }
