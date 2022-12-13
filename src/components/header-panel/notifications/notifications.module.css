@@ -1,0 +1,18 @@
+
+.notifications {
+    position: absolute;
+    right: 0;
+    top: 48px;
+    background-color: var(--background-color);
+    padding: 14px 12px;
+    border-bottom-left-radius: 8px;
+    min-width: 200px;
+    box-shadow: 0 20px 40px 0 rgba(0,0,0,.3);
+    border: 1px solid var(--border)
+}
+
+.notifications.hide {
+    visibility: hidden;
+}
+
+
