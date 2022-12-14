@@ -4,15 +4,16 @@ import MessageIcon from '../../assets/icons/message.svg';
 import {Notifications} from "./notifications/notifications";
 import {useState} from "react";
 import {Budget} from "../budget/budget";
-import {getMessages} from "../../services/message/message-service";
+import {useMessages} from "../../messages/context/useMessages";
 
 export const HeaderPanel = () => {
+    const {messages} = useMessages();
+    const messagesCount = messages.length
     const [isNotificationVisible, setIsNotificationVisible] = useState(false);
 
-    const messagesCount = getMessages().length;
 
     return (
-        <div className={css.headerPanel}>
+        <div className={css.headerPanel} >
             <HeaderNav onClick={() => setIsNotificationVisible(!isNotificationVisible)}>
                 <div className={css.messageButton} >
                     <img src={MessageIcon} />

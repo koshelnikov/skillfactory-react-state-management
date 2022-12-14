@@ -2,6 +2,7 @@ import {Dashboard} from "./components/pages/dashboard/dashboard";
 import {RouterProvider, createBrowserRouter} from "react-router-dom";
 import {Notifications} from "./components/pages/notifications/notifications";
 import {Root} from "./components/pages/root/root";
+import {MessagesProvider} from "./messages/context/useMessages";
 
 const router = createBrowserRouter( [
     {
@@ -20,6 +21,9 @@ const router = createBrowserRouter( [
     }
 ])
 
-const App = () => <RouterProvider router={router}/>
+const App = () =>
+    <MessagesProvider>
+        <RouterProvider router={router}/>
+    </MessagesProvider>
 
-export default App;
+export default App
