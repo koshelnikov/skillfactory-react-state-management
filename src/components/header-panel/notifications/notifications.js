@@ -6,13 +6,13 @@ export const Notifications = ({visible}) => {
 
     return (
         <div className={`${css.notifications} ${visible ? '' : css.hide}`} onClick={e => e.stopPropagation()}>
-            {getMessages().map(item => {
-                return <div key={item.id}
-                            className={item.isRead ? css.read : ''}
-                            onClick={() => markAsRead(item.id)}>
+            {getMessages().map(item =>
+                <div key={item.id}
+                     className={item.isRead ? css.read : ''}
+                     onClick={() => markAsRead(item.id)}>
                     {item.message}
                 </div>
-            })}
+            )}
         </div>
     )
 }

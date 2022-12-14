@@ -15,7 +15,6 @@ root.render(
     <MessagesProvider>
         <App />
     </MessagesProvider>
-
 );
 
 // If you want to start measuring performance in your app, pass a function
