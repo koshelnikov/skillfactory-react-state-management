@@ -3,9 +3,12 @@ import {randomTime} from "../../utils/rand";
 let id = 0;
 export class MessageService {
 
-
     getId() {
         return ++id;
+    }
+
+    resetId() {
+        id = 0;
     }
 
     getMessage() {

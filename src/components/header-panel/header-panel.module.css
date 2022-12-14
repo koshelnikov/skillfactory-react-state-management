@@ -5,6 +5,10 @@
     align-items: center;
 }
 
+.headerPanel a {
+    text-decoration: none;
+}
+
 .messageButton {
     position: relative;
 }
