@@ -4,17 +4,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createStore } from 'redux'
-import reducer from "./reducers/messages/reducer";
+import reducer from "./messages/reducer/reducer";
 import {Provider} from "react-redux";
 import {MessagesProvider} from "./messages/context/useMessages";
 
-const store = createStore(reducer)
+const store = createStore(reducer, [{
+    id: 1, message: 'Message 1'
+}]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <MessagesProvider>
+    <Provider store={store}>
         <App />
-    </MessagesProvider>
+    </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

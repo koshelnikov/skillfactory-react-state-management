@@ -4,9 +4,13 @@ import {Notifications} from "./notifications/notifications";
 import {useState} from "react";
 import {Budget} from "./budget/budget";
 import {useMessages} from "../../messages/context/useMessages";
+import {useSelector} from "react-redux";
 
 export const HeaderPanel = () => {
-    const {unreadMessagesCounter} = useMessages();
+    // 1. Context
+    //const {unreadMessagesCounter} = useMessages();
+    const messages = useSelector((store) => store);
+    const unreadMessagesCounter = messages.filter(item => !item.isRead).length;
 
     const [isNotificationVisible, setIsNotificationVisible] = useState(false);
 
