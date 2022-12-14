@@ -1,7 +1,7 @@
 import css from './index.module.css'
 import {HeaderPanel} from "../header-panel/header-panel";
 import {useDispatch, useSelector} from "react-redux";
-import {addMessage, loadMessage, markAsRead} from "../../messages/reducer/actions";
+import {addMessage, requestGetMessage, markAsRead, requestMarkMessageAsRead} from "../../messages/redux/actions";
 import {useEffect, useState} from "react";
 import {MessageService} from "../../services/message/message.service";
 import {randomTime} from "../../utils/rand";
@@ -40,7 +40,10 @@ export const Index = () => {
 
             // Asynchronus
             // 3. Redux Thunk
-            dispatch(getMessage())
+            //dispatch(getMessage())
+
+            // 4. Redux Saga
+            dispatch(requestGetMessage())
         }
     }, [isLoading, messages, messageService])
 
@@ -62,7 +65,10 @@ export const Index = () => {
                                      //messageService.markAsRead(item.id).then(id => dispatch(markAsRead(id)));
 
                                      // 3. Redux Thunk
-                                     dispatch(markMessageAsRead(item.id))
+                                     //dispatch(markMessageAsRead(item.id))
+
+                                     // 4. Redux Saga
+                                     dispatch(requestMarkMessageAsRead(item.id));
 
                                  }}>
                                 {item.message}

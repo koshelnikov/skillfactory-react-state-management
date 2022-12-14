@@ -20,7 +20,7 @@ export class MessageService {
     }
 
     markAsRead(id) {
-        const timeout = randomTime(1000, 3000);
+        const timeout = randomTime(300, 1500);
         return new Promise(res => setTimeout(() => res(id), timeout));
     }
 

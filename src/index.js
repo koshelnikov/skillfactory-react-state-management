@@ -4,10 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {applyMiddleware, createStore} from 'redux'
-import reducer from "./messages/reducer/reducer";
+import reducer from "./messages/redux/reducer";
 import {Provider} from "react-redux";
 import {MessagesProvider} from "./messages/context/useMessages";
 import thunk from "redux-thunk";
+import createSagaMiddleware from 'redux-saga';
+import rootSaga from "./messages/redux-saga/sagas";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -15,17 +17,26 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 //root.render(<MessagesProvider><App /></MessagesProvider>);
 
 // 2. Redux
-//const store = createStore(reducer, {
+//const store = createStore(redux, {
 //    messages: [],
 //    isLoading: false
 //});
 //root.render(<Provider store={store}><App /></Provider>);
 
 // 3. Redux Thunk
+//const store = createStore(reducer, {
+//    messages: [],
+//    isLoading: false
+//}, applyMiddleware(thunk));
+//root.render(<Provider store={store}><App /></Provider>);
+
+// 4. Redux Saga
+const sagaMiddleware = createSagaMiddleware();
 const store = createStore(reducer, {
     messages: [],
     isLoading: false
-}, applyMiddleware(thunk));
+}, applyMiddleware(sagaMiddleware));
+sagaMiddleware.run(rootSaga);
 root.render(<Provider store={store}><App /></Provider>);
 
 

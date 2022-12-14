@@ -1,8 +1,8 @@
-import {ADD_MESSAGE, LOAD_MESSAGES, MARK_MESSAGE_AS_READ} from "./actions";
+import {ADD_MESSAGE, REQUEST_GET_MESSAGE, MARK_MESSAGE_AS_READ, LOAD_MESSAGE} from "./actions";
 
 const reducer = (state, action) => {
     switch (action.type) {
-        case LOAD_MESSAGES:
+        case LOAD_MESSAGE:
             return {
                 ...state,
                 isLoading: true
