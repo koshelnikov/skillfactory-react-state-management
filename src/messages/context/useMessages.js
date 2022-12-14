@@ -1,4 +1,4 @@
-import {createContext, useContext, useEffect, useState} from "react";
+import {createContext, useContext, useState} from "react";
 
 const MessagesContext = createContext(null);
 
@@ -9,23 +9,8 @@ export const MessagesProvider = (props) => {
         id, message, isRead: false
     }])
 
-    useEffect(() => {
-        if (messages.length < 5) {
-            const time = Math.floor(Math.random() * 5000) + 1000;
-            const interval = setInterval(() => {
-                const id = messages.length + 1;
-                addMessage(id, `message ${id}`);
-            }, time)
-
-            return () => clearInterval(interval);
-        }
-    }, [messages]);
-
-
     const context = {
         messages,
-        unreadMessagesCounter: messages.filter(item => !item.isRead).length,
-        getMessages: () => [...messages].sort((a, b) => b.id - a.id),
         addMessage,
         markAsRead: (id) => {
             setMessages([

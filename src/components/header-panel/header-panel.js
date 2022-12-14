@@ -1,6 +1,5 @@
 import css from './header-panel.module.css';
 import MessageIcon from '../../assets/icons/message.svg';
-import {Notifications} from "./notifications/notifications";
 import {useState} from "react";
 import {Budget} from "./budget/budget";
 import {useMessages} from "../../messages/context/useMessages";
@@ -8,8 +7,9 @@ import {useSelector} from "react-redux";
 
 export const HeaderPanel = () => {
     // 1. Context
-    //const {unreadMessagesCounter} = useMessages();
-    const messages = useSelector((store) => store);
+    //const {messages} = useMessages();
+    // 2. Redux
+    const messages = useSelector((store) => store.messages);
     const unreadMessagesCounter = messages.filter(item => !item.isRead).length;
 
     const [isNotificationVisible, setIsNotificationVisible] = useState(false);
@@ -24,7 +24,6 @@ export const HeaderPanel = () => {
                     <img src={MessageIcon} />
                     {unreadMessagesCounter > 0 && <Budget className={css.messageBudget} value={unreadMessagesCounter}/>}
                 </div>
-                <Notifications visible={isNotificationVisible}/>
             </li>
         </ul>
     )

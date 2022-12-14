@@ -1,4 +1,4 @@
-import {Root} from "./components/pages/root/root";
+import {Index} from "./components/pages";
 
-const App = () => <Root/>
+const App = () => <Index/>
 export default App
