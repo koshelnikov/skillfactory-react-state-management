@@ -1,5 +1,4 @@
 import css from './notifications.module.css'
-import {Link} from "react-router-dom";
 import {useMessages} from "../../../messages/context/useMessages";
 
 export const Notifications = ({visible}) => {
@@ -14,8 +13,6 @@ export const Notifications = ({visible}) => {
                     {item.message}
                 </div>
             })}
-
-            <Link to={'/notifications'}>показать все</Link>
         </div>
     )
 }

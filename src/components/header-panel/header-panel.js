@@ -7,17 +7,19 @@ import {Budget} from "../budget/budget";
 import {useMessages} from "../../messages/context/useMessages";
 
 export const HeaderPanel = () => {
-    const {messages} = useMessages();
-    const messagesCount = messages.length
+    const {unreadMessagesCounter} = useMessages();
+
     const [isNotificationVisible, setIsNotificationVisible] = useState(false);
 
+    const toggleMessageVisibility = () =>
+        setIsNotificationVisible(!isNotificationVisible);
 
     return (
         <div className={css.headerPanel} >
-            <HeaderNav onClick={() => setIsNotificationVisible(!isNotificationVisible)}>
+            <HeaderNav onClick={() => toggleMessageVisibility()}>
                 <div className={css.messageButton} >
                     <img src={MessageIcon} />
-                    {messagesCount > 0 && <Budget className={css.messageBudget} value={messagesCount}/>}
+                    {unreadMessagesCounter > 0 && <Budget className={css.messageBudget} value={unreadMessagesCounter}/>}
                 </div>
                 <Notifications visible={isNotificationVisible}/>
             </HeaderNav>

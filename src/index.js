@@ -6,16 +6,16 @@ import reportWebVitals from './reportWebVitals';
 import { createStore } from 'redux'
 import reducer from "./reducers/messages/reducer";
 import {Provider} from "react-redux";
+import {MessagesProvider} from "./messages/context/useMessages";
 
 const store = createStore(reducer)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <Provider store={store}>
-        <React.StrictMode>
-            <App />
-        </React.StrictMode>
-    </Provider>
+    <MessagesProvider>
+        <App />
+    </MessagesProvider>
+
 );
 
 // If you want to start measuring performance in your app, pass a function

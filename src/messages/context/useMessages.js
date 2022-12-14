@@ -10,11 +10,11 @@ export const MessagesProvider = (props) => {
     }])
 
     useEffect(() => {
-        if (messages.length < 10) {
+        if (messages.length < 5) {
             const time = Math.floor(Math.random() * 5000) + 1000;
             const interval = setInterval(() => {
                 const id = messages.length + 1;
-                addMessage(id, `${id} message`);
+                addMessage(id, `message ${id}`);
             }, time)
 
             return () => clearInterval(interval);
@@ -24,6 +24,7 @@ export const MessagesProvider = (props) => {
 
     const context = {
         messages,
+        unreadMessagesCounter: messages.filter(item => !item.isRead).length,
         getMessages: () => [...messages].sort((a, b) => b.id - a.id),
         addMessage,
         markAsRead: (id) => {
