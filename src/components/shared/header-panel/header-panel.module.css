@@ -1,37 +1,50 @@
 .headerPanel {
     background-color: white;
     display: flex;
-    justify-content: flex-end;
     align-items: center;
+    justify-content: space-between;
+    padding-left: 12px;
 }
+
+.headerPanelTitle {
+    font-weight: bold;
+}
+
 
 .headerPanel a {
     text-decoration: none;
 }
 
-.messageButton {
+.headerPanel ul {
+    display: flex;
+}
+
+.headerNav > {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.headerNav > * {
     position: relative;
-}
-
-.messageBudget {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-}
-
-.headerNav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: var(--header-height);
     list-style-type: none;
     margin: 0;
     padding: 0 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
     user-select: none;
 }
 
 .headerNav:hover {
     background-color: var(--backgorund-hover);
     cursor: pointer;
+}
+
+.messageBudget {
+    position: absolute;
+    right: 12px;
+    bottom: 6px;
 }

@@ -26,7 +26,7 @@ const Index = () => {
 
     return (
         <>
-            <HeaderPanel unreadMessagesCounter={unreadMessagesCounter}/>
+            <HeaderPanel title={'Redux Saga'} unreadMessagesCounter={unreadMessagesCounter}/>
             <Messages messages={messages}
                       onMessageClick={(item) =>
                           dispatch(requestMarkMessageAsRead(item.id))

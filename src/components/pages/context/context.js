@@ -1,4 +1,3 @@
-import css from '../index.module.css';
 import {HeaderPanel} from "../../shared/header-panel/header-panel";
 import {MessagesProvider, useMessages} from "../../../state-management/context/useMessages";
 import {useEffect, useState} from "react";
@@ -25,7 +24,7 @@ const Index = () => {
 
     return (
         <>
-            <HeaderPanel unreadMessagesCounter={unreadMessagesCounter}/>
+            <HeaderPanel title={'Context'} unreadMessagesCounter={unreadMessagesCounter}/>
             <Messages messages={messages}
                       onMessageClick={(item) => {
                           messageService.markAsRead(item.id).then(id => markAsRead(item.id))

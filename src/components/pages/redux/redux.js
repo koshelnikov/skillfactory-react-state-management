@@ -25,7 +25,7 @@ const Index = () => {
 
     return (
         <>
-            <HeaderPanel unreadMessagesCounter={unreadMessagesCounter}/>
+            <HeaderPanel title={'Redux'} unreadMessagesCounter={unreadMessagesCounter}/>
             <Messages messages={messages}
                       onMessageClick={(item) => {
                           messageService.markAsRead(item.id).then(id => dispatch(markAsRead(id)));
