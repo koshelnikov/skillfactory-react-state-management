@@ -1,8 +1,8 @@
 import css from './header-panel.module.css';
-import MessageIcon from '../../assets/icons/message.svg';
+import MessageIcon from '../../../assets/icons/message.svg';
 import {useState} from "react";
 import {Budget} from "./budget/budget";
-import {useMessages} from "../../state-management/context/useMessages";
+import {useMessages} from "../../../state-management/context/useMessages";
 import {useSelector} from "react-redux";
 import {Link, NavLink} from "react-router-dom";
 

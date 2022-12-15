@@ -1,8 +1,6 @@
 import {
     addMessage,
     REQUEST_GET_MESSAGE,
-    requestGetMessage,
-    MARK_MESSAGE_AS_READ,
     loadMessage,
     REQUEST_MARK_MESSAGE_AS_READ, markAsRead
 } from "../redux/actions";

@@ -1,4 +1,4 @@
-import css from '../pages/index.module.css';
+import css from '../../pages/index.module.css';
 
 export const Messages = ({messages, onMessageClick}) => {
     return (

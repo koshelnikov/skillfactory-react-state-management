@@ -4,8 +4,8 @@ import {Provider, useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
 import {MessageService} from "../../../services/message/message.service";
 import {requestGetMessage, requestMarkMessageAsRead} from "../../../state-management/redux/actions";
-import {HeaderPanel} from "../../header-panel/header-panel";
-import {Messages} from "../../messages/messages";
+import {HeaderPanel} from "../../shared/header-panel/header-panel";
+import {Messages} from "../../shared/messages/messages";
 import createSagaMiddleware from "redux-saga";
 import rootSaga from "../../../state-management/redux-saga/sagas";
 
