@@ -1,5 +1,5 @@
 import {useContext} from "react";
-import {MessagesContext} from "./context";
+import {MessagesContext} from "./provider";
 
 
 export const useMessages = () => {

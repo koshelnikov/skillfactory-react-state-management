@@ -3,12 +3,13 @@ import {useMessages} from "../../../state-management/context/useMessages";
 import {useEffect, useState} from "react";
 import {MessageService} from "../../../services/message/message.service";
 import {Messages} from "../../shared/messages/messages";
-import {MessagesProvider} from "../../../state-management/context/context";
+import {MessagesProvider} from "../../../state-management/context/provider";
 
 const Index = () => {
     const {messages, markAsRead, addMessage} = useMessages();
     const [isLoading, setIsLoading] = useState(false);
     const [messageService] = useState(new MessageService());
+    const [markedMessageId, setMarkedMessageId] = useState(null);
 
     useEffect(() => {
         if (!isLoading && messages.length < 5) {
@@ -23,12 +24,20 @@ const Index = () => {
 
     const unreadMessagesCounter = messages.filter(item => !item.isRead).length;
 
+    useEffect(() => {
+        if (markedMessageId) {
+            markAsRead(markedMessageId)
+        }
+
+    }, [markedMessageId])
+
     return (
         <>
             <HeaderPanel title={'Context'} unreadMessagesCounter={unreadMessagesCounter}/>
             <Messages messages={messages}
                       onMessageClick={(item) => {
-                          messageService.markAsRead(item.id).then(id => markAsRead(item.id))
+                          messageService.markAsRead(item.id)
+                              .then(id => setMarkedMessageId(id))
                       }}
             />
         </>
