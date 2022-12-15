@@ -1,8 +1,9 @@
 import {HeaderPanel} from "../../shared/header-panel/header-panel";
-import {MessagesProvider, useMessages} from "../../../state-management/context/useMessages";
+import {useMessages} from "../../../state-management/context/useMessages";
 import {useEffect, useState} from "react";
 import {MessageService} from "../../../services/message/message.service";
 import {Messages} from "../../shared/messages/messages";
+import {MessagesProvider} from "../../../state-management/context/context";
 
 const Index = () => {
     const {messages, markAsRead, addMessage} = useMessages();

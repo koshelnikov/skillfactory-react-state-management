@@ -11,10 +11,6 @@
     margin: 0 0 12px 0;
 }
 
-.notifications > span {
-    color: #FFFFFF;
-    font-size: 4em;
-}
 
 .notification {
     cursor: pointer;
