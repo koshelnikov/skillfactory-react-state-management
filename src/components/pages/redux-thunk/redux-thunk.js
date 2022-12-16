@@ -3,11 +3,10 @@ import reducer from "../../../state-management/redux/reducer";
 import {Provider, useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
 import {MessageService} from "../../../services/message/message.service";
-import {addMessage, loadMessage, markAsRead} from "../../../state-management/redux/actions";
 import {HeaderPanel} from "../../shared/header-panel/header-panel";
 import {Messages} from "../../shared/messages/messages";
 import thunk from "redux-thunk";
-import {getMessage, markMessageAsRead} from "../../../state-management/redux-thunk/redux-thunk";
+import {getMessage, markMessageAsRead} from "../../../state-management/redux/redux-thunk/redux-thunk";
 
 const Index = () => {
     const messages = useSelector((store) => store.messages)

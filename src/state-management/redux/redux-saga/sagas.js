@@ -1,11 +1,7 @@
-import {
-    addMessage,
-    REQUEST_GET_MESSAGE,
-    loadMessage,
-    REQUEST_MARK_MESSAGE_AS_READ, markAsRead
-} from "../redux/actions";
+import {addMessage, loadMessage, markAsRead} from "../actions";
 import {takeEvery, put, call} from 'redux-saga/effects';
-import {MessageService} from "../../services/message/message.service";
+import {MessageService} from "../../../services/message/message.service";
+import {REQUEST_GET_MESSAGE, REQUEST_MARK_MESSAGE_AS_READ} from "./actions";
 
 function* loadMessageAsync () {
     const messageService = new MessageService();

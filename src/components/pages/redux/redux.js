@@ -17,7 +17,8 @@ const Index = () => {
 
         if (!isLoading && messages.length < 5) {
             dispatch(loadMessage());
-            messageService.getMessage().then(item => dispatch(addMessage(item.id, item.message)))
+            messageService.getMessage()
+                .then(item => dispatch(addMessage(item.id, item.message)))
         }
     }, [isLoading, messages, messageService])
 
@@ -28,7 +29,8 @@ const Index = () => {
             <HeaderPanel title={'Redux'} unreadMessagesCounter={unreadMessagesCounter}/>
             <Messages messages={messages}
                       onMessageClick={(item) => {
-                          messageService.markAsRead(item.id).then(id => dispatch(markAsRead(id)));
+                          messageService.markAsRead(item.id)
+                              .then(id => dispatch(markAsRead(id)));
                       }}
             />
         </>

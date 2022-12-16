@@ -9,7 +9,7 @@ import {Provider} from "react-redux";
 import {MessagesProvider} from "./state-management/context/useMessages";
 import thunk from "redux-thunk";
 import createSagaMiddleware from 'redux-saga';
-import rootSaga from "./state-management/redux-saga/sagas";
+import rootSaga from "./state-management/redux/redux-saga/sagas";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App/>);

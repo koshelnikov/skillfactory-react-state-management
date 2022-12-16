@@ -1,12 +1,12 @@
-import {loadMessage} from "../redux/actions";
+import {loadMessage} from "../actions";
 
-const {markAsRead} = require("../redux/actions");
-const {addMessage} = require("../redux/actions");
-const {MessageService} = require("../../services/message/message.service");
+const {markAsRead} = require("../actions");
+const {addMessage} = require("../actions");
+const {MessageService} = require("../../../services/message/message.service");
 
 
 export const getMessage = () =>
-    (dispatch) => {
+    (dispatch, store) => {
         const messageService = new MessageService();
         dispatch(loadMessage());
         messageService.getMessage()
@@ -15,7 +15,7 @@ export const getMessage = () =>
     }
 
 export const markMessageAsRead = (id) =>
-    (dispatch) => {
+    (dispatch, store) => {
         const messageService = new MessageService();
         messageService.markAsRead(id)
             .then(id => dispatch(markAsRead(id)))

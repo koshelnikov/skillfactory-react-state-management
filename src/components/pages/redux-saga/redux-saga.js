@@ -1,13 +1,13 @@
+import createSagaMiddleware from "redux-saga";
 import {applyMiddleware, createStore} from "redux";
-import reducer from "../../../state-management/redux/reducer";
 import {Provider, useDispatch, useSelector} from "react-redux";
 import {useEffect, useState} from "react";
+import reducer from "../../../state-management/redux/reducer";
+import rootSaga from "../../../state-management/redux/redux-saga/sagas";
 import {MessageService} from "../../../services/message/message.service";
-import {requestGetMessage, requestMarkMessageAsRead} from "../../../state-management/redux/actions";
 import {HeaderPanel} from "../../shared/header-panel/header-panel";
 import {Messages} from "../../shared/messages/messages";
-import createSagaMiddleware from "redux-saga";
-import rootSaga from "../../../state-management/redux-saga/sagas";
+import {requestGetMessage, requestMarkMessageAsRead} from "../../../state-management/redux/redux-saga/actions";
 
 const Index = () => {
     const messages = useSelector((store) => store.messages)
@@ -19,7 +19,6 @@ const Index = () => {
         if (!isLoading && messages.length < 5) {
             dispatch(requestGetMessage())
         }
-
     }, [isLoading, messages, messageService])
 
     const unreadMessagesCounter = messages.filter(item => !item.isRead).length;
