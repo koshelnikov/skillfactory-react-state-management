@@ -4,6 +4,7 @@ export const MessagesContext = createContext(null);
 
 export const MessagesProvider = (props) => {
     const [messages, setMessages] = useState([])
+    const [isLoading, setIsLoading] = useState(false);
 
     const addMessage = (id, message) =>
         setMessages([
@@ -26,8 +27,9 @@ export const MessagesProvider = (props) => {
     const context = {
         messages,
         addMessage,
-        markAsRead
-
+        markAsRead,
+        isLoading,
+        setIsLoading
     }
 
     return <MessagesContext.Provider value={context}>{props.children}</MessagesContext.Provider>

@@ -1,4 +1,4 @@
-import {ADD_MESSAGE, REQUEST_GET_MESSAGE, MARK_MESSAGE_AS_READ, LOAD_MESSAGE} from "./actions";
+import {ADD_MESSAGE, MARK_MESSAGE_AS_READ, LOAD_MESSAGE} from "./actions";
 
 const reducer = (state, action) => {
     switch (action.type) {

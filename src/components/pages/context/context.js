@@ -6,9 +6,8 @@ import {Messages} from "../../shared/messages/messages";
 import {MessagesProvider} from "../../../state-management/context/provider";
 
 const Index = () => {
-    const {messages, markAsRead, addMessage} = useMessages();
-    const [isLoading, setIsLoading] = useState(false);
     const [messageService] = useState(new MessageService());
+    const {messages, markAsRead, addMessage, isLoading, setIsLoading} = useMessages();
     const [markedMessageId, setMarkedMessageId] = useState(null);
 
     useEffect(() => {
@@ -44,5 +43,8 @@ const Index = () => {
     )
 }
 
-export default () => <MessagesProvider><Index/></MessagesProvider>;
+export default () =>
+    <MessagesProvider>
+        <Index/>
+    </MessagesProvider>;
 
