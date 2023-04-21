@@ -1,6 +1,10 @@
 import {ADD_MESSAGE, MARK_MESSAGE_AS_READ, LOAD_MESSAGE} from "./actions";
+const initiateState = {
+    messages: [],
+    isLoading: false
+}
 
-const reducer = (state, action) => {
+const reducer = (state = initiateState, action) => {
     switch (action.type) {
         case LOAD_MESSAGE:
             return {
