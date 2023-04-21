@@ -10,9 +10,9 @@ export const HeaderPanel = ({title, unreadMessagesCounter}) => {
             <div className={css.headerPanelTitle}>{title}</div>
             <ul>
                 <li className={css.headerNav}><a href={'/'}>Context</a></li>
-                <li className={css.headerNav}><a href={'/redux'}>Redux</a></li>
-                <li className={css.headerNav}><a href={'/redux-thunk'}>Redux Thunk</a></li>
-                <li className={css.headerNav}><a href={'/redux-saga'}>Redux Saga</a></li>
+                <li className={css.headerNav}><a href={'/react-redux'}>Redux</a></li>
+                <li className={css.headerNav}><a href={'/react-redux-thunk'}>Redux Thunk</a></li>
+                <li className={css.headerNav}><a href={'/react-redux-saga'}>Redux Saga</a></li>
 
                 <li className={css.headerNav}>
                     <div>
