@@ -1,6 +1,6 @@
 import {createStore} from "redux";
 import reducer from "../../../state-management/redux/reducer";
-import {connect, Provider, useDispatch, useSelector} from "react-redux";
+import {connect, Provider} from "react-redux";
 import {useEffect, useState} from "react";
 import {MessageService} from "../../../services/message/message.service";
 import {addMessage, loadMessage, markAsRead} from "../../../state-management/redux/actions";
@@ -8,7 +8,7 @@ import {HeaderPanel} from "../../shared/header-panel/header-panel";
 import {Messages} from "../../shared/messages/messages";
 
 const Index = ({messages, isLoading, loadMessage, addMessage, markAsRead}) => {
-    const [messageService] = useState(new MessageService());
+    const messageService = new MessageService();
 
     useEffect(() => {
 
@@ -18,7 +18,7 @@ const Index = ({messages, isLoading, loadMessage, addMessage, markAsRead}) => {
                 .then(item =>
                     addMessage(item.id, item.message))
         }
-    }, [isLoading, messages, messageService])
+    }, [isLoading, messages])
 
     const unreadMessagesCounter = messages.filter(item => !item.isRead).length;
 
@@ -36,10 +36,7 @@ const Index = ({messages, isLoading, loadMessage, addMessage, markAsRead}) => {
     )
 }
 
-const store = createStore(reducer, {
-    messages: [],
-    isLoading: false
-});
+const store = createStore(reducer);
 
 const App = connect(
     (store) => ({
@@ -49,4 +46,6 @@ const App = connect(
     {loadMessage, addMessage, markAsRead}
 )(Index)
 
-export default () => <Provider store={store}><App/></Provider>
+export default () => <Provider store={store}>
+    <App/>
+</Provider>

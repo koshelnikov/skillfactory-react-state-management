@@ -14,9 +14,7 @@ export const addMessage = (id, message) => {
     return {
         type: ADD_MESSAGE,
         id,
-        message,
-        isRead: false,
-        isLoading: false
+        message
     }
 }
 

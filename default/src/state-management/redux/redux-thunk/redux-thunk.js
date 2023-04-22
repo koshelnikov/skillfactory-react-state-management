@@ -6,7 +6,7 @@ const {MessageService} = require("../../../services/message/message.service");
 
 
 export const getMessage = () =>
-    (dispatch, store) => {
+    (dispatch) => {
         const messageService = new MessageService();
         dispatch(loadMessage());
         messageService.getMessage()
@@ -15,7 +15,7 @@ export const getMessage = () =>
     }
 
 export const markMessageAsRead = (id) =>
-    (dispatch, store) => {
+    (dispatch) => {
         const messageService = new MessageService();
         messageService.markAsRead(id)
             .then(id => dispatch(markAsRead(id)))

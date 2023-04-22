@@ -1,8 +1,7 @@
 import {applyMiddleware, createStore} from "redux";
 import reducer from "../../../state-management/redux/reducer";
 import {Provider, useDispatch, useSelector} from "react-redux";
-import {useEffect, useState} from "react";
-import {MessageService} from "../../../services/message/message.service";
+import {useEffect} from "react";
 import {HeaderPanel} from "../../shared/header-panel/header-panel";
 import {Messages} from "../../shared/messages/messages";
 import thunk from "redux-thunk";
@@ -12,13 +11,12 @@ const Index = () => {
     const messages = useSelector((store) => store.messages)
     const isLoading = useSelector((store) => store.isLoading)
     const dispatch = useDispatch();
-    const [messageService] = useState(new MessageService());
 
     useEffect(() => {
         if (!isLoading && messages.length < 5) {
             dispatch(getMessage())
         }
-    }, [isLoading, messages, messageService])
+    }, [isLoading, messages])
 
     const unreadMessagesCounter = messages.filter(item => !item.isRead).length;
 
@@ -34,9 +32,12 @@ const Index = () => {
     )
 }
 
-const store = createStore(reducer, {
-    messages: [],
-    isLoading: false
-}, applyMiddleware(thunk));
+const store = createStore(
+    reducer,
+    {
+        messages: [],
+        isLoading: false
+    },
+    applyMiddleware(thunk));
 
 export default () => <Provider store={store}><Index/></Provider>

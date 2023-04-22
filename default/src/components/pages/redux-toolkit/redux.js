@@ -12,10 +12,7 @@ const Index = () => {
     const dispatch = useDispatch();
     const [messageService] = useState(new MessageService());
 
-
     useEffect(() => {
-        console.log(isLoading, messages.length)
-
         if (!isLoading && messages.length < 5) {
             dispatch(loadMessage());
             messageService.getMessage()

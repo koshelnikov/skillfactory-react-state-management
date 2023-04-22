@@ -1,10 +1,20 @@
 import {ADD_MESSAGE, MARK_MESSAGE_AS_READ, LOAD_MESSAGE} from "./actions";
-const initiateState = {
+const initialState = {
     messages: [],
     isLoading: false
 }
 
-const reducer = (state = initiateState, action) => {
+/*
+
+{
+ type: string,
+ payload: any | number | string | complex object | array
+}
+
+
+ */
+
+const reducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD_MESSAGE:
             return {
@@ -26,10 +36,10 @@ const reducer = (state = initiateState, action) => {
                     return item;
                 }),
             }
-
-        default:
-            return state
     }
+
+
+    return state
 }
 
 export default reducer;

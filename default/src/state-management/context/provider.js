@@ -1,4 +1,4 @@
-import {createContext, useCallback, useState} from "react";
+import {createContext, useState} from "react";
 
 export const MessagesContext = createContext(null);
 
@@ -26,9 +26,9 @@ export const MessagesProvider = (props) => {
 
     const context = {
         messages,
+        isLoading,
         addMessage,
         markAsRead,
-        isLoading,
         setIsLoading
     }
 

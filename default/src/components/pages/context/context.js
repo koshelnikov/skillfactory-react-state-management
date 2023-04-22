@@ -6,7 +6,7 @@ import {Messages} from "../../shared/messages/messages";
 import {MessagesProvider} from "../../../state-management/context/provider";
 
 const Index = () => {
-    const [messageService] = useState(new MessageService());
+    const messageService = new MessageService();
     const {messages, markAsRead, addMessage, isLoading, setIsLoading} = useMessages();
     const [markedMessageId, setMarkedMessageId] = useState(null);
 
@@ -19,7 +19,7 @@ const Index = () => {
                     setIsLoading(false);
                 })
         }
-    }, [isLoading, messages, messageService])
+    }, [isLoading, messages])
 
     const unreadMessagesCounter = messages.filter(item => !item.isRead).length;
 
@@ -43,8 +43,33 @@ const Index = () => {
     )
 }
 
+const OtherComponent = () => {
+    const {messages, isLoading} = useMessages();
+    const [showAlert, setShowAlert] = useState(false);
+
+    useEffect(() => {
+        if (messages.length > 3){
+            setShowAlert(true);
+        }
+
+    }, [messages])
+
+    return (
+        <div>
+            <div>Other Component</div>
+            {showAlert && <span>Messages are more then 10</span>}
+
+            {isLoading && <span>Messages is loading from the server</span>}
+        </div>
+    )
+
+}
+
 export default () =>
     <MessagesProvider>
-        <Index/>
+        <div>
+            <Index/>
+            <OtherComponent/>
+        </div>
     </MessagesProvider>;
 
