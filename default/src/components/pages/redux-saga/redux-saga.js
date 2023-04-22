@@ -13,13 +13,12 @@ const Index = () => {
     const messages = useSelector((store) => store.messages)
     const isLoading = useSelector((store) => store.isLoading)
     const dispatch = useDispatch();
-    const [messageService] = useState(new MessageService());
 
     useEffect(() => {
         if (!isLoading && messages.length < 5) {
             dispatch(requestGetMessage())
         }
-    }, [isLoading, messages, messageService])
+    }, [isLoading, messages])
 
     const unreadMessagesCounter = messages.filter(item => !item.isRead).length;
 

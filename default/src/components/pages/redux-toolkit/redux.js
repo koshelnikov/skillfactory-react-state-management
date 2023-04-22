@@ -10,7 +10,7 @@ const Index = () => {
     const messages = useSelector((store) => store.messages.messages)
     const isLoading = useSelector((store) => store.messages.isLoading)
     const dispatch = useDispatch();
-    const [messageService] = useState(new MessageService());
+    const messageService = new MessageService();
 
     useEffect(() => {
         if (!isLoading && messages.length < 5) {
@@ -19,7 +19,7 @@ const Index = () => {
                 .then(item =>
                     dispatch(addMessage({id: item.id, message: item.message})))
         }
-    }, [isLoading, messages, messageService])
+    }, [isLoading, messages])
 
     const unreadMessagesCounter = messages.filter(item => !item.isRead).length;
 
